@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_partials_contact_us_forms",
+  "info": {
+    "displayName": "contactUsForm",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.media"
+    },
+    "title": {
+      "type": "string"
+    },
+    "contactButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "addressButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    }
+  }
+}

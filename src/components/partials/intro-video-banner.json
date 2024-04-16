@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_partials_intro_video_banners",
+  "info": {
+    "displayName": "introVideoBanner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subtitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.video"
+    }
+  }
+}

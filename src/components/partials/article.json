@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_partials_articles",
+  "info": {
+    "displayName": "article"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.heading"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    }
+  }
+}

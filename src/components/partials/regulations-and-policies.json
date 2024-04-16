@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_partials_regulations_and_policies",
+  "info": {
+    "displayName": "regulationsAndPolicies",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

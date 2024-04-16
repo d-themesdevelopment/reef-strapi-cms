@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_features_request_informations",
+  "info": {
+    "displayName": "requestInformation"
+  },
+  "options": {},
+  "attributes": {
+    "serviceName": {
+      "type": "string"
+    },
+    "applicantCategory": {
+      "type": "string"
+    },
+    "specialty": {
+      "type": "string"
+    },
+    "qualificationType": {
+      "type": "string"
+    },
+    "qualificationDesc": {
+      "type": "text"
+    },
+    "professionalStatus": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_base_headings",
+  "info": {
+    "displayName": "heading",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  }
+}

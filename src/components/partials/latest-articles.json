@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_partials_latest_articles",
+  "info": {
+    "displayName": "latestArticles"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

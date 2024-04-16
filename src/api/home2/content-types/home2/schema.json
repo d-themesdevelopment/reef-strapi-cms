@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "home2s",
+  "info": {
+    "singularName": "home2",
+    "pluralName": "home2s",
+    "displayName": "home2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "partials.intro-video-banner",
+        "partials.services-two",
+        "partials.categories-two",
+        "partials.article",
+        "partials.faq"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

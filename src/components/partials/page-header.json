@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_partials_page_headers",
+  "info": {
+    "displayName": "pageHeader"
+  },
+  "options": {},
+  "attributes": {
+    "subtitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    }
+  }
+}

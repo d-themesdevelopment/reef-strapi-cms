@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_base_menus",
+  "info": {
+    "displayName": "menu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "text"
+    },
+    "subMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.content"
+    }
+  }
+}

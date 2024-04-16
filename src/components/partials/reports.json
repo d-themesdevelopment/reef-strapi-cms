@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_partials_reports",
+  "info": {
+    "displayName": "reports",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.heading"
+    }
+  }
+}

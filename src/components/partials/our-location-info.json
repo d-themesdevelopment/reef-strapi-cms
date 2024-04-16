@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_partials_our_location_infos",
+  "info": {
+    "displayName": "OurLocationInfo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.heading"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "contactAddress": {
+      "type": "component",
+      "repeatable": false,
+      "component": "features.address"
+    }
+  }
+}

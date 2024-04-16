@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_features_accordions",
+  "info": {
+    "displayName": "accordion"
+  },
+  "options": {},
+  "attributes": {
+    "accordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.content"
+    }
+  }
+}

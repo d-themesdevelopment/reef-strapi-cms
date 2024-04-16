@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_orders",
+  "info": {
+    "singularName": "service-order",
+    "pluralName": "service-orders",
+    "displayName": "ServiceOrderRequestID",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "confirm": {
+      "type": "boolean",
+      "default": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "serviceOrderRequestIDs"
+    },
+    "serviceID": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "personalInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "features.personal-information",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "requestInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "features.request-information",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "serviceName": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

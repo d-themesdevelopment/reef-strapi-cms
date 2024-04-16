@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_features_personal_informations",
+  "info": {
+    "displayName": "personalInformation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "fatherName": {
+      "type": "string"
+    },
+    "grandFatherName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "idNumber": {
+      "type": "integer"
+    },
+    "mobileNumber": {
+      "type": "string"
+    }
+  }
+}

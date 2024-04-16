@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_partials_intro_articles",
+  "info": {
+    "displayName": "introArticles"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.heading"
+    }
+  }
+}

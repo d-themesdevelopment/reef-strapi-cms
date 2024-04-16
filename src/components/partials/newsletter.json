@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_partials_newsletters",
+  "info": {
+    "displayName": "newsletter"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_base_videos",
+  "info": {
+    "displayName": "video",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "videoUrl": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alt": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

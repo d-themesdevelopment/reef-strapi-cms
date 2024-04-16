@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "media_centers",
+  "info": {
+    "singularName": "media-center",
+    "pluralName": "media-centers",
+    "displayName": "MediaCenter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "partials.intro-articles",
+        "partials.newsletter",
+        "partials.latest-articles"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_features_info_boxes",
+  "info": {
+    "displayName": "infoBox",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.media",
+      "required": false
+    }
+  }
+}

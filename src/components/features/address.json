@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_features_addresses",
+  "info": {
+    "displayName": "contactAddress",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "capital": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "email": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "phone": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "nationalAddress": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.media"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_partials_contact_forms",
+  "info": {
+    "displayName": "contactForm"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "email": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "phone": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    },
+    "nationalAddress": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
+    }
+  }
+}

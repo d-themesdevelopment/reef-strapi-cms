@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_partials_stakeholders",
+  "info": {
+    "displayName": "stakeholders",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.heading"
+    },
+    "infoBoxes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "features.info-box"
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "base.content"
+    }
+  }
+}

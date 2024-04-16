@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_features_service_boxes",
+  "info": {
+    "displayName": "serviceBox",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "serviceRequestID": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service"
+    }
+  }
+}

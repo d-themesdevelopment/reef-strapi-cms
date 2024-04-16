@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_partials_jobs",
+  "info": {
+    "displayName": "Jobs",
+    "icon": "briefcase",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.heading"
+    },
+    "categoryText": {
+      "type": "string"
+    },
+    "positionText": {
+      "type": "string"
+    },
+    "applyText": {
+      "type": "string"
+    },
+    "emptyItemText": {
+      "type": "string"
+    }
+  }
+}

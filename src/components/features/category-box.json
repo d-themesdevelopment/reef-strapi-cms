@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_features_category_boxes",
+  "info": {
+    "displayName": "categoryBox",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.media"
+    },
+    "background": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.media"
+    }
+  }
+}

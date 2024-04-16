@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_features_service_forms",
+  "info": {
+    "displayName": "serviceForm"
+  },
+  "options": {},
+  "attributes": {
+    "serviceName": {
+      "type": "string"
+    }
+  }
+}

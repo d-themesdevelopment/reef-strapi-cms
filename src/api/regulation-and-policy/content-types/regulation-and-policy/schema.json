@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regulation_and_policies",
+  "info": {
+    "singularName": "regulation-and-policy",
+    "pluralName": "regulation-and-policies",
+    "displayName": "RegulationAndPolicy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "docUrl": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

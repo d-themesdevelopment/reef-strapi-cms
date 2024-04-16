@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_partials_members",
+  "info": {
+    "displayName": "members",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}
