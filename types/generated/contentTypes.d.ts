@@ -960,6 +960,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToOne',
       'api::article-category.article-category'
     >;
+    icon: Attribute.Component<'base.media'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

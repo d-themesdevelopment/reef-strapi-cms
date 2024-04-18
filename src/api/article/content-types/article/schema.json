@@ -71,6 +71,16 @@
       "relation": "manyToOne",
       "target": "api::article-category.article-category",
       "inversedBy": "articles"
+    },
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "base.media"
     }
   }
 }
