@@ -1679,6 +1679,89 @@ export interface ApiMediaCenterMediaCenter extends Schema.SingleType {
   };
 }
 
+export interface ApiMediaLeftSidebarMediaLeftSidebar extends Schema.SingleType {
+  collectionName: 'media_left_sidebars';
+  info: {
+    singularName: 'media-left-sidebar';
+    pluralName: 'media-left-sidebars';
+    displayName: 'MediaLeftSidebar';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    desc: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    newsletterFormTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    emailPlaceholder: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subscribeTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    latestArticleTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    articleButton: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::media-left-sidebar.media-left-sidebar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::media-left-sidebar.media-left-sidebar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::media-left-sidebar.media-left-sidebar',
+      'oneToMany',
+      'api::media-left-sidebar.media-left-sidebar'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiMemberMember extends Schema.CollectionType {
   collectionName: 'members';
   info: {
@@ -2183,6 +2266,7 @@ declare module '@strapi/types' {
       'api::job.job': ApiJobJob;
       'api::job-category.job-category': ApiJobCategoryJobCategory;
       'api::media-center.media-center': ApiMediaCenterMediaCenter;
+      'api::media-left-sidebar.media-left-sidebar': ApiMediaLeftSidebarMediaLeftSidebar;
       'api::member.member': ApiMemberMember;
       'api::regulation-and-policy.regulation-and-policy': ApiRegulationAndPolicyRegulationAndPolicy;
       'api::report.report': ApiReportReport;
