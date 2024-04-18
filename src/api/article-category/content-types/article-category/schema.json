@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article-category",
     "pluralName": "article-categories",
-    "displayName": "ArticleCategory"
+    "displayName": "ArticleCategory",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,6 +31,12 @@
         }
       },
       "type": "text"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "article_category"
     }
   }
 }

@@ -65,6 +65,12 @@
         }
       },
       "type": "string"
+    },
+    "article_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article-category.article-category",
+      "inversedBy": "articles"
     }
   }
 }

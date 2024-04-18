@@ -955,6 +955,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    article_category: Attribute.Relation<
+      'api::article.article',
+      'manyToOne',
+      'api::article-category.article-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -986,6 +991,7 @@ export interface ApiArticleCategoryArticleCategory
     singularName: 'article-category';
     pluralName: 'article-categories';
     displayName: 'ArticleCategory';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1008,6 +1014,11 @@ export interface ApiArticleCategoryArticleCategory
           localized: true;
         };
       }>;
+    articles: Attribute.Relation<
+      'api::article-category.article-category',
+      'oneToMany',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
