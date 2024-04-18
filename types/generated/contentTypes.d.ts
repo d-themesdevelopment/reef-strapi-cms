@@ -955,11 +955,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    article_category: Attribute.Relation<
-      'api::article.article',
-      'manyToOne',
-      'api::article-category.article-category'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -991,19 +986,28 @@ export interface ApiArticleCategoryArticleCategory
     singularName: 'article-category';
     pluralName: 'article-categories';
     displayName: 'ArticleCategory';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.String;
-    value: Attribute.Text;
-    articles: Attribute.Relation<
-      'api::article-category.article-category',
-      'oneToMany',
-      'api::article.article'
-    >;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1019,6 +1023,12 @@ export interface ApiArticleCategoryArticleCategory
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::article-category.article-category',
+      'oneToMany',
+      'api::article-category.article-category'
+    >;
+    locale: Attribute.String;
   };
 }
 
