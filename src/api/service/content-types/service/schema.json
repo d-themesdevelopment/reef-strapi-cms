@@ -64,15 +64,15 @@
       },
       "type": "string"
     },
-    "workingDay": {
+    "type": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "string"
     },
-    "type": {
+    "workingDay": {
       "pluginOptions": {
         "i18n": {
           "localized": true

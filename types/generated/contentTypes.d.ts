@@ -1846,13 +1846,13 @@ export interface ApiServiceService extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    workingDay: Attribute.Integer &
+    type: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    type: Attribute.String &
+    workingDay: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
