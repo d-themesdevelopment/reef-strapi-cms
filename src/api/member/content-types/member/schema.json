@@ -51,8 +51,12 @@
       }
     },
     "slug": {
-      "type": "uid",
-      "targetField": "name"
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
