@@ -81,6 +81,16 @@
         }
       },
       "component": "base.media"
+    },
+    "browseBtn": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "base.content"
     }
   }
 }
