@@ -214,6 +214,7 @@ export interface PartialsContactForm extends Schema.Component {
   collectionName: 'components_partials_contact_forms';
   info: {
     displayName: 'contactForm';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -221,6 +222,12 @@ export interface PartialsContactForm extends Schema.Component {
     email: Attribute.Component<'base.content'>;
     phone: Attribute.Component<'base.content'>;
     nationalAddress: Attribute.Component<'base.content'>;
+    emailTitle: Attribute.String;
+    nameTitle: Attribute.String;
+    subjectTitle: Attribute.String;
+    phoneTitle: Attribute.String;
+    messageTitle: Attribute.String;
+    submitBtnTitle: Attribute.String;
   };
 }
 

@@ -955,6 +955,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    article_category: Attribute.Relation<
+      'api::article.article',
+      'manyToOne',
+      'api::article-category.article-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -976,6 +981,44 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::article.article'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiArticleCategoryArticleCategory
+  extends Schema.CollectionType {
+  collectionName: 'article_categories';
+  info: {
+    singularName: 'article-category';
+    pluralName: 'article-categories';
+    displayName: 'ArticleCategory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    value: Attribute.Text;
+    articles: Attribute.Relation<
+      'api::article-category.article-category',
+      'oneToMany',
+      'api::article.article'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::article-category.article-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::article-category.article-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1650,7 +1693,7 @@ export interface ApiMemberMember extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    body: Attribute.Blocks &
+    body: Attribute.RichText &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2096,6 +2139,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::article.article': ApiArticleArticle;
+      'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::career.career': ApiCareerCareer;
       'api::category.category': ApiCategoryCategory;
       'api::contact-us.contact-us': ApiContactUsContactUs;

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_partials_contact_forms",
   "info": {
-    "displayName": "contactForm"
+    "displayName": "contactForm",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -25,6 +26,24 @@
       "type": "component",
       "repeatable": false,
       "component": "base.content"
+    },
+    "emailTitle": {
+      "type": "string"
+    },
+    "nameTitle": {
+      "type": "string"
+    },
+    "subjectTitle": {
+      "type": "string"
+    },
+    "phoneTitle": {
+      "type": "string"
+    },
+    "messageTitle": {
+      "type": "string"
+    },
+    "submitBtnTitle": {
+      "type": "string"
     }
   }
 }
