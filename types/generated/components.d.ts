@@ -352,11 +352,13 @@ export interface PartialsPageHeader extends Schema.Component {
   collectionName: 'components_partials_page_headers';
   info: {
     displayName: 'pageHeader';
+    description: '';
   };
   attributes: {
     subtitle: Attribute.String;
     title: Attribute.String;
     desc: Attribute.Text;
+    menu: Attribute.Component<'base.content', true>;
   };
 }
 
