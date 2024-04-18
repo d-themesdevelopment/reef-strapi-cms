@@ -2176,6 +2176,84 @@ export interface ApiServicePageServicePage extends Schema.SingleType {
   };
 }
 
+export interface ApiServiceSinglePageServiceSinglePage
+  extends Schema.SingleType {
+  collectionName: 'service_single_pages';
+  info: {
+    singularName: 'service-single-page';
+    pluralName: 'service-single-pages';
+    displayName: 'ServiceSinglePage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    sidebarTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    sidebarDesc: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    list: Attribute.Component<'base.content', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    allServiceBtn: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    serviceSectionTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    serviceRequestBtn: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service-single-page.service-single-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service-single-page.service-single-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::service-single-page.service-single-page',
+      'oneToMany',
+      'api::service-single-page.service-single-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiSpecialtySpecialty extends Schema.CollectionType {
   collectionName: 'specialties';
   info: {
@@ -2273,6 +2351,7 @@ declare module '@strapi/types' {
       'api::service.service': ApiServiceService;
       'api::service-order.service-order': ApiServiceOrderServiceOrder;
       'api::service-page.service-page': ApiServicePageServicePage;
+      'api::service-single-page.service-single-page': ApiServiceSinglePageServiceSinglePage;
       'api::specialty.specialty': ApiSpecialtySpecialty;
     }
   }
