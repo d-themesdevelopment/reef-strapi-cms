@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "auth_pages",
+  "collectionName": "service_register_pages",
   "info": {
-    "singularName": "auth-page",
-    "pluralName": "auth-pages",
-    "displayName": "AuthPage",
+    "singularName": "service-register-page",
+    "pluralName": "service-register-pages",
+    "displayName": "serviceRegisterPage",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "loginPageTitle": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,7 +24,7 @@
       },
       "type": "string"
     },
-    "emailTitle": {
+    "desc": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -32,7 +32,7 @@
       },
       "type": "string"
     },
-    "emailPlaceholder": {
+    "personalRequestTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -40,7 +40,7 @@
       },
       "type": "string"
     },
-    "passwordTitle": {
+    "summaryTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -48,7 +48,7 @@
       },
       "type": "string"
     },
-    "passwordPlaceholder": {
+    "termsConditionTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -56,7 +56,7 @@
       },
       "type": "string"
     },
-    "forgetPasswordTitle": {
+    "personalInformationTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -64,7 +64,7 @@
       },
       "type": "string"
     },
-    "rememberMeTitle": {
+    "englishText": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -72,7 +72,7 @@
       },
       "type": "string"
     },
-    "siginInTitle": {
+    "arabicText": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -80,7 +80,7 @@
       },
       "type": "string"
     },
-    "isAcountText": {
+    "firstName": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -88,7 +88,7 @@
       },
       "type": "string"
     },
-    "siginUpTitle": {
+    "lastName": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -96,7 +96,7 @@
       },
       "type": "string"
     },
-    "signUpAccountTitle": {
+    "fatherName": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -104,7 +104,7 @@
       },
       "type": "string"
     },
-    "nameTitle": {
+    "grandFatherName": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -112,7 +112,7 @@
       },
       "type": "string"
     },
-    "confirmPasswordTitle": {
+    "address": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -120,7 +120,7 @@
       },
       "type": "string"
     },
-    "confirmPasswordPlaceholder": {
+    "email": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -128,15 +128,7 @@
       },
       "type": "string"
     },
-    "agreementText": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "createAccountTitle": {
+    "mobileNumber": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -144,7 +136,7 @@
       },
       "type": "string"
     },
-    "hasAccountTitle": {
+    "idNumber": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -152,7 +144,7 @@
       },
       "type": "string"
     },
-    "logInNowText": {
+    "requestInformation": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -160,15 +152,7 @@
       },
       "type": "string"
     },
-    "authPageFooterTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "requiredText": {
+    "serviceName": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -176,7 +160,7 @@
       },
       "type": "string"
     },
-    "usernamePlaceholder": {
+    "applicantCategory": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -184,7 +168,7 @@
       },
       "type": "string"
     },
-    "verificationCodeTitle": {
+    "specialty": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -192,7 +176,7 @@
       },
       "type": "string"
     },
-    "verifyTitle": {
+    "qualificationType": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -200,7 +184,15 @@
       },
       "type": "string"
     },
-    "verificationCodePlaceholder": {
+    "qualification": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "professionalStatus": {
       "pluginOptions": {
         "i18n": {
           "localized": true
