@@ -1186,6 +1186,12 @@ export interface ApiAuthPageAuthPage extends Schema.SingleType {
           localized: true;
         };
       }>;
+    requiredText: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
