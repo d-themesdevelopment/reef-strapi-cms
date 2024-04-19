@@ -222,11 +222,11 @@ export interface PartialsContactForm extends Schema.Component {
     email: Attribute.Component<'base.content'>;
     phone: Attribute.Component<'base.content'>;
     nationalAddress: Attribute.Component<'base.content'>;
-    emailTitle: Attribute.String;
-    nameTitle: Attribute.String;
-    subjectTitle: Attribute.String;
-    phoneTitle: Attribute.String;
-    messageTitle: Attribute.String;
+    emailForm: Attribute.Component<'base.content'>;
+    usernameForm: Attribute.Component<'base.content'>;
+    subjectForm: Attribute.Component<'base.content'>;
+    phoneForm: Attribute.Component<'base.content'>;
+    messageForm: Attribute.Component<'base.content'>;
     submitBtnTitle: Attribute.String;
   };
 }

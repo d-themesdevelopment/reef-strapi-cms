@@ -27,20 +27,30 @@
       "repeatable": false,
       "component": "base.content"
     },
-    "emailTitle": {
-      "type": "string"
+    "emailForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
     },
-    "nameTitle": {
-      "type": "string"
+    "usernameForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
     },
-    "subjectTitle": {
-      "type": "string"
+    "subjectForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
     },
-    "phoneTitle": {
-      "type": "string"
+    "phoneForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
     },
-    "messageTitle": {
-      "type": "string"
+    "messageForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.content"
     },
     "submitBtnTitle": {
       "type": "string"
