@@ -2024,6 +2024,143 @@ export interface ApiMemberMember extends Schema.CollectionType {
   };
 }
 
+export interface ApiProfilePageProfilePage extends Schema.SingleType {
+  collectionName: 'profile_pages';
+  info: {
+    singularName: 'profile-page';
+    pluralName: 'profile-pages';
+    displayName: 'ProfilePage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    pageTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    profilePictureTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    editProfilePicture: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    profileInformation: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    firstName: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    lastName: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    phoneNumber: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    editInfoTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    emailAddress: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    email: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    editEmailTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Password: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    newPassword: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    currentPassword: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    changePasswordTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profile-page.profile-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profile-page.profile-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::profile-page.profile-page',
+      'oneToMany',
+      'api::profile-page.profile-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiRegulationAndPolicyRegulationAndPolicy
   extends Schema.CollectionType {
   collectionName: 'regulation_and_policies';
@@ -2796,6 +2933,7 @@ declare module '@strapi/types' {
       'api::media-center.media-center': ApiMediaCenterMediaCenter;
       'api::media-left-sidebar.media-left-sidebar': ApiMediaLeftSidebarMediaLeftSidebar;
       'api::member.member': ApiMemberMember;
+      'api::profile-page.profile-page': ApiProfilePageProfilePage;
       'api::regulation-and-policy.regulation-and-policy': ApiRegulationAndPolicyRegulationAndPolicy;
       'api::report.report': ApiReportReport;
       'api::service.service': ApiServiceService;
