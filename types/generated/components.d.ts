@@ -206,7 +206,6 @@ export interface PartialsCategories extends Schema.Component {
   };
   attributes: {
     heading: Attribute.Component<'base.heading'>;
-    categoryBox: Attribute.Component<'features.category-box', true>;
   };
 }
 
@@ -427,6 +426,18 @@ export interface PartialsStakeholders extends Schema.Component {
   };
 }
 
+export interface SharedCookieButton extends Schema.Component {
+  collectionName: 'components_shared_cookie_buttons';
+  info: {
+    displayName: 'Cookie Button';
+    icon: 'mouse-pointer';
+  };
+  attributes: {
+    buttonType: Attribute.Enumeration<['Primary', 'Secondary', 'Text']>;
+    label: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -463,6 +474,7 @@ declare module '@strapi/types' {
       'partials.services-two': PartialsServicesTwo;
       'partials.services': PartialsServices;
       'partials.stakeholders': PartialsStakeholders;
+      'shared.cookie-button': SharedCookieButton;
     }
   }
 }

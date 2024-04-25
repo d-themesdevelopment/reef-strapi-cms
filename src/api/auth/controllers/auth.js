@@ -11,14 +11,17 @@ module.exports = {
 
     // Generate a verification code and associate it with the user's email address
     const verificationCode = generateVerificationCode();
-    ctx.cookies.set("verificationCode", verificationCode);
+    // ctx.cookies.set("verificationCode", verificationCode);
 
     // Save the verification code in your database or any other storage mechanism
 
     // Send an email containing the verification code to the user's email address
     await sendVerificationEmail(identifier, verificationCode);
 
-    return { message: "Verification code sent to email" };
+    return {
+      message: "Verification code sent to email",
+      verifiedCode: verificationCode,
+    };
   },
 
   validateVerificationCode: async (ctx) => {
@@ -29,9 +32,9 @@ module.exports = {
     const storedVerificationCode = ctx.cookies.get("verificationCode");
 
     if (verificationCode === storedVerificationCode) {
-      return { message: "Verification successful" };
+      return { message: "Verification successful", verify: true };
     } else {
-      return { message: "Invalid verification code" };
+      return { message: "Invalid verification code", verify: false };
     }
   },
 };

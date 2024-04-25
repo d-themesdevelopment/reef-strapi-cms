@@ -1417,6 +1417,196 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
   };
 }
 
+export interface ApiCookieCookie extends Schema.CollectionType {
+  collectionName: 'cookies';
+  info: {
+    singularName: 'cookie';
+    pluralName: 'cookies';
+    displayName: 'Cookies';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+    'content-manager': {
+      visible: false;
+    };
+  };
+  attributes: {
+    category: Attribute.Relation<
+      'api::cookie.cookie',
+      'manyToOne',
+      'api::cookie-category.cookie-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cookie.cookie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cookie.cookie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::cookie.cookie',
+      'oneToMany',
+      'api::cookie.cookie'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCookieCategoryCookieCategory extends Schema.CollectionType {
+  collectionName: 'cookie_categories';
+  info: {
+    singularName: 'cookie-category';
+    pluralName: 'cookie-categories';
+    displayName: 'Cookie Categories';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+    'content-manager': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    isNecessary: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    key: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    cookies: Attribute.Relation<
+      'api::cookie-category.cookie-category',
+      'oneToMany',
+      'api::cookie.cookie'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cookie-category.cookie-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cookie-category.cookie-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::cookie-category.cookie-category',
+      'oneToMany',
+      'api::cookie-category.cookie-category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCookiePopupCookiePopup extends Schema.CollectionType {
+  collectionName: 'cookie_popups';
+  info: {
+    singularName: 'cookie-popup';
+    pluralName: 'cookie-popups';
+    displayName: 'Cookie Popups';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+    'content-manager': {
+      visible: false;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    buttons: Attribute.Component<'shared.cookie-button', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    hasCustomizability: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cookie-popup.cookie-popup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cookie-popup.cookie-popup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::cookie-popup.cookie-popup',
+      'oneToMany',
+      'api::cookie-popup.cookie-popup'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -2930,6 +3120,9 @@ declare module '@strapi/types' {
       'api::career.career': ApiCareerCareer;
       'api::category.category': ApiCategoryCategory;
       'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::cookie.cookie': ApiCookieCookie;
+      'api::cookie-category.cookie-category': ApiCookieCategoryCookieCategory;
+      'api::cookie-popup.cookie-popup': ApiCookiePopupCookiePopup;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;

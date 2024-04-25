@@ -10,11 +10,6 @@
       "type": "component",
       "repeatable": false,
       "component": "base.heading"
-    },
-    "categoryBox": {
-      "type": "component",
-      "repeatable": true,
-      "component": "features.category-box"
     }
   }
 }
