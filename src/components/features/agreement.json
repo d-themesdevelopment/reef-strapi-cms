@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_features_agreements",
+  "info": {
+    "displayName": "agreement",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "cancel": {
+      "type": "boolean",
+      "default": false
+    },
+    "pdfUrl": {
+      "type": "text"
+    },
+    "message": {
+      "type": "richtext"
+    }
+  }
+}

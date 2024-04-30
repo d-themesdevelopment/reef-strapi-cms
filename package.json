@@ -23,7 +23,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
-    "strapi-plugin-cookie-manager": "^1.2.2",
     "strapi-plugin-website-builder": "^3.0.1",
     "styled-components": "5.3.3"
   },

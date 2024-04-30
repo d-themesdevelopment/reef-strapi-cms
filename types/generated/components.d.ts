@@ -89,6 +89,20 @@ export interface FeaturesAddress extends Schema.Component {
   };
 }
 
+export interface FeaturesAgreement extends Schema.Component {
+  collectionName: 'components_features_agreements';
+  info: {
+    displayName: 'agreement';
+    description: '';
+  };
+  attributes: {
+    complete: Attribute.Boolean & Attribute.DefaultTo<false>;
+    cancel: Attribute.Boolean & Attribute.DefaultTo<false>;
+    pdfUrl: Attribute.Text;
+    message: Attribute.RichText;
+  };
+}
+
 export interface FeaturesCategoryBox extends Schema.Component {
   collectionName: 'components_features_category_boxes';
   info: {
@@ -448,6 +462,7 @@ declare module '@strapi/types' {
       'base.video': BaseVideo;
       'features.accordion': FeaturesAccordion;
       'features.address': FeaturesAddress;
+      'features.agreement': FeaturesAgreement;
       'features.category-box': FeaturesCategoryBox;
       'features.info-box': FeaturesInfoBox;
       'features.personal-information': FeaturesPersonalInformation;

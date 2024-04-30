@@ -2587,13 +2587,6 @@ export interface ApiServiceOrderServiceOrder extends Schema.CollectionType {
     };
   };
   attributes: {
-    confirm: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
     user: Attribute.Relation<
       'api::service-order.service-order',
       'manyToOne',
@@ -2618,6 +2611,12 @@ export interface ApiServiceOrderServiceOrder extends Schema.CollectionType {
         };
       }>;
     serviceName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    agreement: Attribute.Component<'features.agreement'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
