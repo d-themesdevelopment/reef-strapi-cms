@@ -68,23 +68,13 @@
       },
       "component": "features.agreement"
     },
-    "complete": {
+    "confirmation": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "boolean",
-      "default": false
-    },
-    "cancel": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "message": {
       "pluginOptions": {
@@ -92,7 +82,7 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "text"
     },
     "attachedFile": {
       "allowedTypes": [

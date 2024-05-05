@@ -2622,21 +2622,13 @@ export interface ApiServiceOrderServiceOrder extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    complete: Attribute.Boolean &
+    confirmation: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
-      }> &
-      Attribute.DefaultTo<false>;
-    cancel: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
-    message: Attribute.RichText &
+      }>;
+    message: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
