@@ -58,16 +58,6 @@
         }
       }
     },
-    "agreement": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "features.agreement"
-    },
     "confirmation": {
       "pluginOptions": {
         "i18n": {
@@ -85,14 +75,15 @@
       "type": "text"
     },
     "attachedFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true

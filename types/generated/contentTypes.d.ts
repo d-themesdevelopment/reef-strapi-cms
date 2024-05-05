@@ -2616,12 +2616,6 @@ export interface ApiServiceOrderServiceOrder extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    agreement: Attribute.Component<'features.agreement'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     confirmation: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
