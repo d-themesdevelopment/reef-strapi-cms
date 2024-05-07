@@ -812,7 +812,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.role'
     >;
     avatar: Attribute.Media;
-    userRole: Attribute.String;
     brand: Attribute.Media;
     companyName: Attribute.String;
     desc: Attribute.RichText;
@@ -828,8 +827,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     fatherName: Attribute.String;
     grandFatherName: Attribute.String;
     mobileNumber: Attribute.String;
-    verificationCode: Attribute.Integer;
-    approval: Attribute.Boolean & Attribute.DefaultTo<false>;
+    approvedAsEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

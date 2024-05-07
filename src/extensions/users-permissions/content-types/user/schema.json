@@ -76,9 +76,6 @@
         "audios"
       ]
     },
-    "userRole": {
-      "type": "string"
-    },
     "brand": {
       "type": "media",
       "multiple": false,
@@ -132,10 +129,7 @@
     "mobileNumber": {
       "type": "string"
     },
-    "verificationCode": {
-      "type": "integer"
-    },
-    "approval": {
+    "approvedAsEmployee": {
       "type": "boolean",
       "default": false
     }
