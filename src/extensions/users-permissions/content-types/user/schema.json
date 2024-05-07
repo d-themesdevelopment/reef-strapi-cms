@@ -132,6 +132,10 @@
     "approvedAsEmployee": {
       "type": "boolean",
       "default": false
+    },
+    "isEmployee": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
