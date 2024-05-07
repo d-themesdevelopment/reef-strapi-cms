@@ -9,8 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "draftAndPublish": false,
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -135,6 +134,10 @@
     },
     "verificationCode": {
       "type": "integer"
+    },
+    "approval": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

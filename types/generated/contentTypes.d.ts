@@ -783,7 +783,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -830,6 +829,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     grandFatherName: Attribute.String;
     mobileNumber: Attribute.String;
     verificationCode: Attribute.Integer;
+    approval: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
