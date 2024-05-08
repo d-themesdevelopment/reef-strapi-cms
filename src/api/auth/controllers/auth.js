@@ -37,6 +37,30 @@ module.exports = {
       return { message: "Invalid verification code", verify: false };
     }
   },
+
+  sendEmailToUser: async (ctx) => {
+    const { identifier } = ctx.request.body;
+
+    const transporter = nodemailer.createTransport({
+      // Configure your email service provider settings here
+      service: "gmail",
+      auth: {
+        user: "gaiahealersshopify@gmail.com",
+        pass: "byep avju cnsz aqut",
+      },
+    });
+
+    try {
+      await transporter.sendMail({
+        from: "Admin",
+        to: identifier,
+        subject: "Welcome to our Reef business",
+        text: `Your account was approved by admin. You can log in with your credential info now`,
+      });
+    } catch (error) {
+      console.log("error", error);
+    }
+  },
 };
 
 function generateVerificationCode() {
