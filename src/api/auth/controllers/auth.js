@@ -40,6 +40,7 @@ module.exports = {
 
   sendEmailToUser: async (ctx) => {
     const { identifier, username } = ctx.request.body;
+    console.log(identifier, username, "identifier, username");
 
     const transporter = nodemailer.createTransport({
       // Configure your email service provider settings here
@@ -57,8 +58,12 @@ module.exports = {
         subject: `Hi ${username}, Welcome to our Reef business`,
         text: `Your account was approved by admin. You can log in with your credential info now`,
       });
+
+      return { message: "Sent the message" };
     } catch (error) {
       console.log("error", error);
+
+      return { message: "Failed the message" };
     }
   },
 };
