@@ -136,6 +136,10 @@
     "isEmployee": {
       "type": "boolean",
       "default": false
+    },
+    "isAdmin": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

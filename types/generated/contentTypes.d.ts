@@ -829,6 +829,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     mobileNumber: Attribute.String;
     approvedAsEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     isEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
+    isAdmin: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
