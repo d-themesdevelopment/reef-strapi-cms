@@ -46,8 +46,8 @@ module.exports = {
       // Configure your email service provider settings here
       service: "gmail",
       auth: {
-        user: "gaiahealersshopify@gmail.com",
-        pass: "byep avju cnsz aqut",
+        user: process.env.APP_EMAIL,
+        pass: process.env.APP_PASSWORD,
       },
     });
 
@@ -81,8 +81,8 @@ async function sendVerificationEmail(email, verificationCode) {
     // Configure your email service provider settings here
     service: "gmail",
     auth: {
-      user: "gaiahealersshopify@gmail.com",
-      pass: "byep avju cnsz aqut",
+      user: process.env.APP_EMAIL,
+      pass: process.env.APP_PASSWORD,
     },
   });
 
