@@ -2634,6 +2634,13 @@ export interface ApiServiceOrderServiceOrder extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    rejected: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -31,6 +31,19 @@ module.exports = ({ env }) => ({
 			],
 		},
 	},
+  email: {
+    config: {
+      provider: "sendgrid",
+      providerOptions: {
+        apiKey:
+          "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",
+      },
+      settings: {
+        defaultFrom: "dthemesdevelopment@gmail.com",
+        defaultReplyTo: "dthemesdevelopment@gmail.com",
+      },
+    },
+  },
   // "website-builder": {
   //   enabled: true,
   //   config: {
