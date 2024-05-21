@@ -1257,31 +1257,9 @@ export interface ApiCareerCareer extends Schema.SingleType {
     };
   };
   attributes: {
-    blocks: Attribute.DynamicZone<['partials.jobs']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    desc: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    buttons: Attribute.Component<'base.content', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    banner: Attribute.Media &
+    blocks: Attribute.DynamicZone<
+      ['partials.jobs', 'partials.career-page-header']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

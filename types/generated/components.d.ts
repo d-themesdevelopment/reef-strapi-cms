@@ -200,6 +200,20 @@ export interface PartialsArticle extends Schema.Component {
   };
 }
 
+export interface PartialsCareerPageHeader extends Schema.Component {
+  collectionName: 'components_partials_career_page_headers';
+  info: {
+    displayName: 'careerPageHeader';
+    icon: 'bold';
+  };
+  attributes: {
+    title: Attribute.String;
+    desc: Attribute.Text;
+    buttons: Attribute.Component<'base.content', true>;
+    media: Attribute.Media;
+  };
+}
+
 export interface PartialsCategoriesTwo extends Schema.Component {
   collectionName: 'components_partials_categories_twos';
   info: {
@@ -470,6 +484,7 @@ declare module '@strapi/types' {
       'features.service-box': FeaturesServiceBox;
       'features.service-form': FeaturesServiceForm;
       'partials.article': PartialsArticle;
+      'partials.career-page-header': PartialsCareerPageHeader;
       'partials.categories-two': PartialsCategoriesTwo;
       'partials.categories': PartialsCategories;
       'partials.contact-form': PartialsContactForm;
