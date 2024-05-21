@@ -1894,12 +1894,6 @@ export interface ApiJobJob extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    desc: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     type: Attribute.Enumeration<
       [
         'Full-Time',
@@ -1932,6 +1926,42 @@ export interface ApiJobJob extends Schema.CollectionType {
       }>;
     slug: Attribute.String &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    postOwnerName: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    section: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    timeline: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mainDutiesAndTasks: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    jobDescription: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    practicalExperience: Attribute.Component<'base.content'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2007,6 +2037,37 @@ export interface ApiJobCategoryJobCategory extends Schema.CollectionType {
       'api::job-category.job-category'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiJobSidebarJobSidebar extends Schema.SingleType {
+  collectionName: 'job_sidebars';
+  info: {
+    singularName: 'job-sidebar';
+    pluralName: 'job-sidebars';
+    displayName: 'JobSidebar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apply: Attribute.Component<'base.content', true>;
+    institution: Attribute.Component<'base.content'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::job-sidebar.job-sidebar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::job-sidebar.job-sidebar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -3156,6 +3217,7 @@ declare module '@strapi/types' {
       'api::home2.home2': ApiHome2Home2;
       'api::job.job': ApiJobJob;
       'api::job-category.job-category': ApiJobCategoryJobCategory;
+      'api::job-sidebar.job-sidebar': ApiJobSidebarJobSidebar;
       'api::media-center.media-center': ApiMediaCenterMediaCenter;
       'api::media-left-sidebar.media-left-sidebar': ApiMediaLeftSidebarMediaLeftSidebar;
       'api::member.member': ApiMemberMember;
