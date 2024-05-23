@@ -130,6 +130,16 @@
         }
       },
       "component": "base.content"
+    },
+    "employmentType": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "base.content-two"
     }
   }
 }

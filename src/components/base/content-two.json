@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_base_content_twos",
+  "info": {
+    "displayName": "ContentTwo",
+    "icon": "attachment",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "enumeration",
+      "enum": [
+        "Full-Time",
+        "Part-Time",
+        "وقت كامل",
+        "دوام جزئى"
+      ]
+    }
+  }
+}

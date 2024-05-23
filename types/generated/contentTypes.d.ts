@@ -1967,6 +1967,12 @@ export interface ApiJobJob extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    employmentType: Attribute.Component<'base.content-two'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &

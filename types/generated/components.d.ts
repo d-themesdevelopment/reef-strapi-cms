@@ -1,5 +1,25 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BaseContentTwo extends Schema.Component {
+  collectionName: 'components_base_content_twos';
+  info: {
+    displayName: 'ContentTwo';
+    icon: 'attachment';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    value: Attribute.Enumeration<
+      [
+        'Full-Time',
+        'Part-Time',
+        '\u0648\u0642\u062A \u0643\u0627\u0645\u0644',
+        '\u062F\u0648\u0627\u0645 \u062C\u0632\u0626\u0649'
+      ]
+    >;
+  };
+}
+
 export interface BaseContent extends Schema.Component {
   collectionName: 'components_base_contents';
   info: {
@@ -469,6 +489,7 @@ export interface SharedCookieButton extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'base.content-two': BaseContentTwo;
       'base.content': BaseContent;
       'base.heading': BaseHeading;
       'base.media': BaseMedia;
