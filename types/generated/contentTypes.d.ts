@@ -1974,6 +1974,16 @@ export interface ApiJobJob extends Schema.CollectionType {
         };
       }>;
     modal: Attribute.Relation<'api::job.job', 'oneToOne', 'api::modal.modal'>;
+    job_section: Attribute.Relation<
+      'api::job.job',
+      'oneToOne',
+      'api::job-section.job-section'
+    >;
+    job_type: Attribute.Relation<
+      'api::job.job',
+      'oneToOne',
+      'api::job-type.job-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
@@ -2047,6 +2057,64 @@ export interface ApiJobCategoryJobCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiJobSectionJobSection extends Schema.CollectionType {
+  collectionName: 'job_sections';
+  info: {
+    singularName: 'job-section';
+    pluralName: 'job-sections';
+    displayName: 'JobSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    job: Attribute.Relation<
+      'api::job-section.job-section',
+      'oneToOne',
+      'api::job.job'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::job-section.job-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::job-section.job-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::job-section.job-section',
+      'oneToMany',
+      'api::job-section.job-section'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiJobSidebarJobSidebar extends Schema.SingleType {
   collectionName: 'job_sidebars';
   info: {
@@ -2075,6 +2143,64 @@ export interface ApiJobSidebarJobSidebar extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiJobTypeJobType extends Schema.CollectionType {
+  collectionName: 'job_types';
+  info: {
+    singularName: 'job-type';
+    pluralName: 'job-types';
+    displayName: 'JobType';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    job: Attribute.Relation<
+      'api::job-type.job-type',
+      'oneToOne',
+      'api::job.job'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::job-type.job-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::job-type.job-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::job-type.job-type',
+      'oneToMany',
+      'api::job-type.job-type'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -3308,7 +3434,9 @@ declare module '@strapi/types' {
       'api::home2.home2': ApiHome2Home2;
       'api::job.job': ApiJobJob;
       'api::job-category.job-category': ApiJobCategoryJobCategory;
+      'api::job-section.job-section': ApiJobSectionJobSection;
       'api::job-sidebar.job-sidebar': ApiJobSidebarJobSidebar;
+      'api::job-type.job-type': ApiJobTypeJobType;
       'api::media-center.media-center': ApiMediaCenterMediaCenter;
       'api::media-left-sidebar.media-left-sidebar': ApiMediaLeftSidebarMediaLeftSidebar;
       'api::member.member': ApiMemberMember;

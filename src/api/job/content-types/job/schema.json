@@ -146,6 +146,18 @@
       "relation": "oneToOne",
       "target": "api::modal.modal",
       "mappedBy": "job"
+    },
+    "job_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::job-section.job-section",
+      "mappedBy": "job"
+    },
+    "job_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::job-type.job-type",
+      "mappedBy": "job"
     }
   }
 }
