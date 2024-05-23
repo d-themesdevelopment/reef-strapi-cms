@@ -2192,6 +2192,12 @@ export interface ApiJobOrderRequestIdJobOrderRequestId
           localized: true;
         };
       }>;
+    phone: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
