@@ -81,16 +81,6 @@
       },
       "component": "base.content"
     },
-    "section": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "base.content"
-    },
     "timeline": {
       "type": "component",
       "repeatable": false,
@@ -131,22 +121,6 @@
       },
       "component": "base.content"
     },
-    "employmentType": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "base.content-two"
-    },
-    "modal": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::modal.modal",
-      "mappedBy": "job"
-    },
     "job_section": {
       "type": "relation",
       "relation": "oneToOne",
@@ -158,6 +132,22 @@
       "relation": "oneToOne",
       "target": "api::job-type.job-type",
       "mappedBy": "job"
+    },
+    "employmentTypeTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "sectionTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
