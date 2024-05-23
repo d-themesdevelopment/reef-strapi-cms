@@ -1973,6 +1973,7 @@ export interface ApiJobJob extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    modal: Attribute.Relation<'api::job.job', 'oneToOne', 'api::modal.modal'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
@@ -2285,6 +2286,90 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'api::member.member',
       'oneToMany',
       'api::member.member'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiModalModal extends Schema.CollectionType {
+  collectionName: 'modals';
+  info: {
+    singularName: 'modal';
+    pluralName: 'modals';
+    displayName: 'Modal';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    desc: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fullName: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    email: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    phoneNumber: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    coverLetter: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    portfolioLink: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    job: Attribute.Relation<'api::modal.modal', 'oneToOne', 'api::job.job'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::modal.modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::modal.modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::modal.modal',
+      'oneToMany',
+      'api::modal.modal'
     >;
     locale: Attribute.String;
   };
@@ -3227,6 +3312,7 @@ declare module '@strapi/types' {
       'api::media-center.media-center': ApiMediaCenterMediaCenter;
       'api::media-left-sidebar.media-left-sidebar': ApiMediaLeftSidebarMediaLeftSidebar;
       'api::member.member': ApiMemberMember;
+      'api::modal.modal': ApiModalModal;
       'api::profile-page.profile-page': ApiProfilePageProfilePage;
       'api::regulation-and-policy.regulation-and-policy': ApiRegulationAndPolicyRegulationAndPolicy;
       'api::report.report': ApiReportReport;

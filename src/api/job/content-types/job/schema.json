@@ -140,6 +140,12 @@
         }
       },
       "component": "base.content-two"
+    },
+    "modal": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::modal.modal",
+      "mappedBy": "job"
     }
   }
 }
