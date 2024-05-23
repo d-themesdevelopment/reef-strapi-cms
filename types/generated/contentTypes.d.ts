@@ -2057,6 +2057,160 @@ export interface ApiJobCategoryJobCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiJobModalJobModal extends Schema.SingleType {
+  collectionName: 'job_modals';
+  info: {
+    singularName: 'job-modal';
+    pluralName: 'job-modals';
+    displayName: 'JobModal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    desc: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fullName: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    email: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    phoneNumber: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    coverLetter: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    portfolioLink: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::job-modal.job-modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::job-modal.job-modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::job-modal.job-modal',
+      'oneToMany',
+      'api::job-modal.job-modal'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiJobOrderRequestIdJobOrderRequestId
+  extends Schema.CollectionType {
+  collectionName: 'job_order_request_ids';
+  info: {
+    singularName: 'job-order-request-id';
+    pluralName: 'job-order-request-ids';
+    displayName: 'JobOrderRequestID';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    jobRequestID: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fullName: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    email: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    coverLetter: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    portfolioLink: Attribute.Component<'base.content'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::job-order-request-id.job-order-request-id',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::job-order-request-id.job-order-request-id',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::job-order-request-id.job-order-request-id',
+      'oneToMany',
+      'api::job-order-request-id.job-order-request-id'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiJobSectionJobSection extends Schema.CollectionType {
   collectionName: 'job_sections';
   info: {
@@ -3434,6 +3588,8 @@ declare module '@strapi/types' {
       'api::home2.home2': ApiHome2Home2;
       'api::job.job': ApiJobJob;
       'api::job-category.job-category': ApiJobCategoryJobCategory;
+      'api::job-modal.job-modal': ApiJobModalJobModal;
+      'api::job-order-request-id.job-order-request-id': ApiJobOrderRequestIdJobOrderRequestId;
       'api::job-section.job-section': ApiJobSectionJobSection;
       'api::job-sidebar.job-sidebar': ApiJobSidebarJobSidebar;
       'api::job-type.job-type': ApiJobTypeJobType;
