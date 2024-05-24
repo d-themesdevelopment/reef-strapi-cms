@@ -4,7 +4,8 @@
   "info": {
     "singularName": "eomployee-role",
     "pluralName": "eomployee-roles",
-    "displayName": "EomployeeRole"
+    "displayName": "EomployeeRole",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -29,7 +30,13 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "eomployee_roles"
     }
   }
 }

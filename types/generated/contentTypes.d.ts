@@ -830,6 +830,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     approvedAsEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     isEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     isAdmin: Attribute.Boolean & Attribute.DefaultTo<false>;
+    eomployee_roles: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::eomployee-role.eomployee-role'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1615,6 +1620,7 @@ export interface ApiEomployeeRoleEomployeeRole extends Schema.CollectionType {
     singularName: 'eomployee-role';
     pluralName: 'eomployee-roles';
     displayName: 'EomployeeRole';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1631,12 +1637,17 @@ export interface ApiEomployeeRoleEomployeeRole extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    value: Attribute.Text &
+    value: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    user: Attribute.Relation<
+      'api::eomployee-role.eomployee-role',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
