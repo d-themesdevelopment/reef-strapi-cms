@@ -830,10 +830,10 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     approvedAsEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     isEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     isAdmin: Attribute.Boolean & Attribute.DefaultTo<false>;
-    eomployee_roles: Attribute.Relation<
+    employee_roles: Attribute.Relation<
       'plugin::users-permissions.user',
       'oneToMany',
-      'api::eomployee-role.eomployee-role'
+      'api::employee-role.employee-role'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1614,13 +1614,12 @@ export interface ApiCookiePopupCookiePopup extends Schema.CollectionType {
   };
 }
 
-export interface ApiEomployeeRoleEomployeeRole extends Schema.CollectionType {
-  collectionName: 'eomployee_roles';
+export interface ApiEmployeeRoleEmployeeRole extends Schema.CollectionType {
+  collectionName: 'employee_roles';
   info: {
-    singularName: 'eomployee-role';
-    pluralName: 'eomployee-roles';
-    displayName: 'EomployeeRole';
-    description: '';
+    singularName: 'employee-role';
+    pluralName: 'employee-roles';
+    displayName: 'EmployeeRole';
   };
   options: {
     draftAndPublish: true;
@@ -1643,8 +1642,15 @@ export interface ApiEomployeeRoleEomployeeRole extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    user: Attribute.Relation<
-      'api::eomployee-role.eomployee-role',
+    isActive: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    users_permissions_user: Attribute.Relation<
+      'api::employee-role.employee-role',
       'manyToOne',
       'plugin::users-permissions.user'
     >;
@@ -1652,21 +1658,21 @@ export interface ApiEomployeeRoleEomployeeRole extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::eomployee-role.eomployee-role',
+      'api::employee-role.employee-role',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::eomployee-role.eomployee-role',
+      'api::employee-role.employee-role',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     localizations: Attribute.Relation<
-      'api::eomployee-role.eomployee-role',
+      'api::employee-role.employee-role',
       'oneToMany',
-      'api::eomployee-role.eomployee-role'
+      'api::employee-role.employee-role'
     >;
     locale: Attribute.String;
   };
@@ -3593,7 +3599,7 @@ declare module '@strapi/types' {
       'api::cookie.cookie': ApiCookieCookie;
       'api::cookie-category.cookie-category': ApiCookieCategoryCookieCategory;
       'api::cookie-popup.cookie-popup': ApiCookiePopupCookiePopup;
-      'api::eomployee-role.eomployee-role': ApiEomployeeRoleEomployeeRole;
+      'api::employee-role.employee-role': ApiEmployeeRoleEmployeeRole;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;

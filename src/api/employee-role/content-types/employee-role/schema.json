@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "eomployee_roles",
+  "collectionName": "employee_roles",
   "info": {
-    "singularName": "eomployee-role",
-    "pluralName": "eomployee-roles",
-    "displayName": "EomployeeRole",
-    "description": ""
+    "singularName": "employee-role",
+    "pluralName": "employee-roles",
+    "displayName": "EmployeeRole"
   },
   "options": {
     "draftAndPublish": true
@@ -32,11 +31,20 @@
       },
       "type": "string"
     },
-    "user": {
+    "isActive": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "users_permissions_user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "eomployee_roles"
+      "inversedBy": "employee_roles"
     }
   }
 }

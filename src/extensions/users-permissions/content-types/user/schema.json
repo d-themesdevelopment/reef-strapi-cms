@@ -141,11 +141,11 @@
       "type": "boolean",
       "default": false
     },
-    "eomployee_roles": {
+    "employee_roles": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::eomployee-role.eomployee-role",
-      "mappedBy": "user"
+      "target": "api::employee-role.employee-role",
+      "mappedBy": "users_permissions_user"
     }
   }
 }
