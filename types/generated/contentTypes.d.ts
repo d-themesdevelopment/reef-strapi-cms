@@ -835,6 +835,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::employee-role.employee-role'
     >;
+    approvedEmployeeRole: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1620,6 +1621,7 @@ export interface ApiEmployeeRoleEmployeeRole extends Schema.CollectionType {
     singularName: 'employee-role';
     pluralName: 'employee-roles';
     displayName: 'EmployeeRole';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1642,13 +1644,6 @@ export interface ApiEmployeeRoleEmployeeRole extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    isActive: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
     users_permissions_user: Attribute.Relation<
       'api::employee-role.employee-role',
       'manyToOne',

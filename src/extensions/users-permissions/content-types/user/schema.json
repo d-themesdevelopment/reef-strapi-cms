@@ -146,6 +146,10 @@
       "relation": "oneToMany",
       "target": "api::employee-role.employee-role",
       "mappedBy": "users_permissions_user"
+    },
+    "approvedEmployeeRole": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

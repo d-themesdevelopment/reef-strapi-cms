@@ -4,7 +4,8 @@
   "info": {
     "singularName": "employee-role",
     "pluralName": "employee-roles",
-    "displayName": "EmployeeRole"
+    "displayName": "EmployeeRole",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,15 +31,6 @@
         }
       },
       "type": "string"
-    },
-    "isActive": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean",
-      "default": false
     },
     "users_permissions_user": {
       "type": "relation",
