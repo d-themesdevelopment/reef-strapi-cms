@@ -1609,6 +1609,58 @@ export interface ApiCookiePopupCookiePopup extends Schema.CollectionType {
   };
 }
 
+export interface ApiEomployeeRoleEomployeeRole extends Schema.CollectionType {
+  collectionName: 'eomployee_roles';
+  info: {
+    singularName: 'eomployee-role';
+    pluralName: 'eomployee-roles';
+    displayName: 'EomployeeRole';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::eomployee-role.eomployee-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::eomployee-role.eomployee-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::eomployee-role.eomployee-role',
+      'oneToMany',
+      'api::eomployee-role.eomployee-role'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -3530,6 +3582,7 @@ declare module '@strapi/types' {
       'api::cookie.cookie': ApiCookieCookie;
       'api::cookie-category.cookie-category': ApiCookieCategoryCookieCategory;
       'api::cookie-popup.cookie-popup': ApiCookiePopupCookiePopup;
+      'api::eomployee-role.eomployee-role': ApiEomployeeRoleEomployeeRole;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
