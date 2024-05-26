@@ -24,14 +24,6 @@
         }
       }
     },
-    "date": {
-      "type": "date",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "media": {
       "type": "component",
       "repeatable": false,
@@ -71,26 +63,6 @@
       "relation": "manyToOne",
       "target": "api::article-category.article-category",
       "inversedBy": "articles"
-    },
-    "icon": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "base.media"
-    },
-    "browseBtn": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "base.content"
     }
   }
 }

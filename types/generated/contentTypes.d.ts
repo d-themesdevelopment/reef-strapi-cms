@@ -931,12 +931,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    date: Attribute.Date &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     media: Attribute.Component<'base.media'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -966,18 +960,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToOne',
       'api::article-category.article-category'
     >;
-    icon: Attribute.Component<'base.media'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    browseBtn: Attribute.Component<'base.content'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1037,6 +1019,12 @@ export interface ApiArticleCategoryArticleCategory
       'oneToMany',
       'api::article.article'
     >;
+    icon: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
