@@ -3573,6 +3573,64 @@ export interface ApiSpecialtySpecialty extends Schema.CollectionType {
   };
 }
 
+export interface ApiUtilPageUtilPage extends Schema.CollectionType {
+  collectionName: 'util_pages';
+  info: {
+    singularName: 'util-page';
+    pluralName: 'util-pages';
+    displayName: 'utilPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::util-page.util-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::util-page.util-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::util-page.util-page',
+      'oneToMany',
+      'api::util-page.util-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -3626,6 +3684,7 @@ declare module '@strapi/types' {
       'api::service-register-page.service-register-page': ApiServiceRegisterPageServiceRegisterPage;
       'api::service-single-page.service-single-page': ApiServiceSinglePageServiceSinglePage;
       'api::specialty.specialty': ApiSpecialtySpecialty;
+      'api::util-page.util-page': ApiUtilPageUtilPage;
     }
   }
 }
