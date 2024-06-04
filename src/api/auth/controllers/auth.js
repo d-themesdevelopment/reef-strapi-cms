@@ -66,6 +66,34 @@ module.exports = {
       return { message: "Failed the message" };
     }
   },
+  sendNewUser: async (ctx) => {
+    const { identifier, password } = ctx.request.body;
+    console.log(identifier, password, "identifier, username");
+
+    const transporter = nodemailer.createTransport({
+      // Configure your email service provider settings here
+      service: "gmail",
+      auth: {
+        user: process.env.APP_EMAIL,
+        pass: process.env.APP_PASSWORD,
+      },
+    });
+
+    try {
+      await transporter.sendMail({
+        from: "Admin",
+        to: identifier,
+        subject: `Hi, Welcome to our Reef business`,
+        text: `You added to Reef Business. https://reef-admin.vercel.app/signin Email: ${identifier}, Password: ${password}`,
+      });
+
+      return { message: "Sent the message" };
+    } catch (error) {
+      console.log("error", error);
+
+      return { message: "Failed the message" };
+    }
+  },
 };
 
 function generateVerificationCode() {

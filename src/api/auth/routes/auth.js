@@ -27,5 +27,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: "POST",
+      path: "/auth/new-user",
+      handler: "auth.sendNewUser",
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
