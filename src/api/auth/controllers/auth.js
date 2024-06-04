@@ -84,7 +84,12 @@ module.exports = {
         from: "Admin",
         to: identifier,
         subject: `Hi, Welcome to our Reef business`,
-        text: `You added to Reef Business. https://reef-admin.vercel.app/signin Email: ${identifier}, Password: ${password}`,
+        text: `You was added to Reef Business. 
+          https://reef-admin.vercel.app/signin 
+          Cridential info:
+          Email: ${identifier}, 
+          Password: ${password}
+        `,
       });
 
       return { message: "Sent the message" };
