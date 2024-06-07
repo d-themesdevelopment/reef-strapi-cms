@@ -37,6 +37,7 @@ module.exports = ({ env }) => ({
       providerOptions: {
         key: "c9ce7757b44691e38e93747d117ccc3c-a4da91cf-b2256137", // Required
         domain: "sandbox217af371055141ba95712b7c5e1ada68.mailgun.org", // Required
+        host: 'api.mailgun.net',
       },
       settings: {
         defaultFrom: 'dthemesdevelopment@gmail.com',

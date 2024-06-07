@@ -4,6 +4,7 @@
  * A set of functions called "actions" for `auth`
  */
 const nodemailer = require("nodemailer");
+const jwt = require('jsonwebtoken');
 
 module.exports = {
   initiateVerification: async (ctx) => {
@@ -99,6 +100,19 @@ module.exports = {
       return { message: "Failed the message" };
     }
   },
+  resetPassword: async (ctx) => {
+    const { identifier } = ctx.request.body;
+
+    const secretKey = 'fvKZiYjzgHZkIfFGmbvUzw==';
+
+    const payload = {
+      email: identifier
+    };
+
+    const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+
+    return { resetPasswordToken: token };
+  }
 };
 
 function generateVerificationCode() {
