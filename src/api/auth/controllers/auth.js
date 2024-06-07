@@ -111,6 +111,24 @@ module.exports = {
 
     const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
 
+    const transporter = nodemailer.createTransport({
+      // Configure your email service provider settings here
+      service: "gmail",
+      auth: {
+        user: process.env.APP_EMAIL,
+        pass: process.env.APP_PASSWORD,
+      },
+    });
+
+    await transporter.sendMail({
+      from: "Admin",
+      to: identifier,
+      subject: `Hi, You can reset your password`,
+      text: `
+        http://localhost:4321//reset-password?${token}
+      `,
+    });
+
     return { resetPasswordToken: token };
   }
 };
