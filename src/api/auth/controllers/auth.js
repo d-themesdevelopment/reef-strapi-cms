@@ -125,13 +125,14 @@ module.exports = {
       to: identifier,
       subject: `Hi, You can reset your password`,
       text: `
-        http://localhost:4321//reset-password?${token}
+        http://localhost:4321/reset-password?token=${token}
       `,
     });
 
     return { resetPasswordToken: token };
-  }
+  },
 };
+
 
 function generateVerificationCode() {
   // Generate a random verification code
