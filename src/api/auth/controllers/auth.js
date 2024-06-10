@@ -125,7 +125,7 @@ module.exports = {
       to: identifier,
       subject: `Hi, You can reset your password`,
       text: `
-        http://localhost:4321/reset-password?token=${token}
+        ${process.env.APP_FRONTEND_URL ?? "https://reef-frontend.vercel.app"}/reset-password?token=${token}
       `,
     });
 
