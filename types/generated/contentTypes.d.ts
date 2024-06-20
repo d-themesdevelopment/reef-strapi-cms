@@ -836,6 +836,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'api::employee-role.employee-role'
     >;
     approvedEmployeeRole: Attribute.Boolean & Attribute.DefaultTo<false>;
+    extNumber: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

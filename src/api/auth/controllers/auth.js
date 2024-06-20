@@ -87,7 +87,7 @@ module.exports = {
         subject: `Hi, Welcome to our Reef business`,
         text: `You was added to Reef Business. 
           https://reef-admin.vercel.app/signin 
-          Cridential info:
+          Credential info:
           Email: ${identifier}, 
           Password: ${password}
         `,
@@ -154,7 +154,7 @@ async function sendVerificationEmail(email, verificationCode) {
 
   try {
     await transporter.sendMail({
-      from: "Strapi Bankend",
+      from: "Strapi Backend",
       to: email,
       subject: "Verification Code for Two-Step Verification",
       text: `Your verification code is: ${verificationCode}`,

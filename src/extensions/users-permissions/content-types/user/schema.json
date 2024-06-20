@@ -150,6 +150,9 @@
     "approvedEmployeeRole": {
       "type": "boolean",
       "default": false
+    },
+    "extNumber": {
+      "type": "integer"
     }
   }
 }
