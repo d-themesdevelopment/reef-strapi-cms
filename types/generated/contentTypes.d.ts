@@ -830,13 +830,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     approvedAsEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     isEmployee: Attribute.Boolean & Attribute.DefaultTo<false>;
     isAdmin: Attribute.Boolean & Attribute.DefaultTo<false>;
-    employee_roles: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::employee-role.employee-role'
-    >;
     approvedEmployeeRole: Attribute.Boolean & Attribute.DefaultTo<false>;
     extNumber: Attribute.Integer;
+    employee_roles: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::employee-role.employee-role'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1633,9 +1633,9 @@ export interface ApiEmployeeRoleEmployeeRole extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    users_permissions_user: Attribute.Relation<
+    users_permissions_users: Attribute.Relation<
       'api::employee-role.employee-role',
-      'manyToOne',
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;

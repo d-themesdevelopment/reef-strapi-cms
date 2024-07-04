@@ -141,18 +141,18 @@
       "type": "boolean",
       "default": false
     },
-    "employee_roles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::employee-role.employee-role",
-      "mappedBy": "users_permissions_user"
-    },
     "approvedEmployeeRole": {
       "type": "boolean",
       "default": false
     },
     "extNumber": {
       "type": "integer"
+    },
+    "employee_roles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::employee-role.employee-role",
+      "mappedBy": "users_permissions_users"
     }
   }
 }
