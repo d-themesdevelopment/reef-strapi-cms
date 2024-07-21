@@ -12,10 +12,60 @@ function flattenObject(obj, prefix = '') {
   }, {});
 }
 
+function filterFields(obj) {
+  const fieldsToExclude = [
+    'message',
+    'user.provider',
+    'user.password',
+    'user.resetPasswordToken',
+    'user.confirmationToken',
+    'user.confirmed',
+    'user.companyName',
+    'user.updatedAt',
+    'user.approvedAsEmployee',
+    'user.isAdmin',
+    'user.approvedEmployeeRole',
+    'user.extNumber',
+    'user.avatar',
+    'user.background',
+    'user.serviceOrderRequestIDs',
+    'user.employee_roles',
+    'user.createdBy',
+  ];
+
+  const filteredObj = { ...obj };
+  for (const field of fieldsToExclude) {
+    delete filteredObj[field];
+  }
+
+  // Remove all user.role.* fields
+  Object.keys(filteredObj).forEach(key => {
+    if (key.startsWith('user.role.')) {
+      delete filteredObj[key];
+    }
+  });
+
+  // Remove all user.updatedBy.* fields
+  Object.keys(filteredObj).forEach(key => {
+    if (key.startsWith('user.updatedBy.')) {
+      delete filteredObj[key];
+    }
+  });
+
+  // Remove all user.createdBy.* fields
+  Object.keys(filteredObj).forEach(key => {
+    if (key.startsWith('user.createdBy.')) {
+      delete filteredObj[key];
+    }
+  });
+
+  return filteredObj;
+}
+
 function jsonToCSV(items) {
   if (items.length === 0) return '';
 
-  const flattenedItems = items.map(item => flattenObject(item));
+  const flattenedItems = items.map(item => filterFields(flattenObject(item)));
   const allKeys = [...new Set(flattenedItems.flatMap(Object.keys))];
   const header = allKeys.join(',') + '\n';
 
