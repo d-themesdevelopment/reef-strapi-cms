@@ -6,7 +6,7 @@ module.exports = {
       handler: 'csv-export.exportToCSV',
       config: {
         policies: [],
-        auth: true, // Set to true if you want to require authentication
+        auth: ['api::service-order.read'], // always must be an obj - and must require auth 
       },
     },
   ],

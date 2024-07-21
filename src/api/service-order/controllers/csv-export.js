@@ -1,9 +1,14 @@
 const { Readable } = require('stream');
 
 function jsonToCSV(items) {
+  if (items.length === 0) return '';
   const header = Object.keys(items[0]).join(',') + '\n';
-  const rows = items.map(item => Object.values(item).join(',') + '\n');
-  return header + rows.join('');
+  const rows = items.map(item =>
+    Object.values(item).map(value =>
+      typeof value === 'string' ? `"${value.replace(/"/g, '""')}"` : value
+    ).join(',')
+  ).join('\n');
+  return header + rows;
 }
 
 module.exports = {
@@ -12,6 +17,7 @@ module.exports = {
       // Fetch your data here. Adjust the query as needed.
       const entries = await strapi.entityService.findMany('api::service-order.service-order', {
         // Add any necessary query parameters
+        populate: '*',
       });
 
       const csv = jsonToCSV(entries);
