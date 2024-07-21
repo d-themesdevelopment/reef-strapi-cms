@@ -12,52 +12,86 @@ function flattenObject(obj, prefix = '') {
   }, {});
 }
 
+// function filterFields(obj) {
+//   const fieldsToExclude = [
+//     'message',
+//     'user.provider',
+//     'user.password',
+//     'user.resetPasswordToken',
+//     'user.confirmationToken',
+//     'user.confirmed',
+//     'user.companyName',
+//     'user.updatedAt',
+//     'user.approvedAsEmployee',
+//     'user.isAdmin',
+//     'user.approvedEmployeeRole',
+//     'user.extNumber',
+//     'user.avatar',
+//     'user.background',
+//     'user.serviceOrderRequestIDs',
+//     'user.employee_roles',
+//     'user.createdBy',
+//   ];
+
+//   const filteredObj = { ...obj };
+//   for (const field of fieldsToExclude) {
+//     delete filteredObj[field];
+//   }
+
+//   // Remove all user.role.* fields
+//   Object.keys(filteredObj).forEach(key => {
+//     if (key.startsWith('user.role.')) {
+//       delete filteredObj[key];
+//     }
+//   });
+
+//   // Remove all user.updatedBy.* fields
+//   Object.keys(filteredObj).forEach(key => {
+//     if (key.startsWith('user.updatedBy.')) {
+//       delete filteredObj[key];
+//     }
+//   });
+
+//   // Remove all user.createdBy.* fields
+//   Object.keys(filteredObj).forEach(key => {
+//     if (key.startsWith('user.createdBy.')) {
+//       delete filteredObj[key];
+//     }
+//   });
+
+//   return filteredObj;
+// }
+
 function filterFields(obj) {
   const fieldsToExclude = [
     'message',
-    'user.provider',
-    'user.password',
-    'user.resetPasswordToken',
-    'user.confirmationToken',
-    'user.confirmed',
-    'user.companyName',
-    'user.updatedAt',
-    'user.approvedAsEmployee',
-    'user.isAdmin',
-    'user.approvedEmployeeRole',
-    'user.extNumber',
-    'user.avatar',
-    'user.background',
-    'user.serviceOrderRequestIDs',
-    'user.employee_roles',
-    'user.createdBy',
+    'attributes.user.provider',
+    'attributes.user.password',
+    'attributes.user.resetPasswordToken',
+    'attributes.user.confirmationToken',
+    'attributes.user.confirmed',
+    'attributes.user.companyName',
+    'attributes.user.updatedAt',
+    'attributes.user.approvedAsEmployee',
+    'attributes.user.isAdmin',
+    'attributes.user.approvedEmployeeRole',
+    'attributes.user.extNumber',
+    'attributes.user.avatar',
+    'attributes.user.background',
+    'attributes.user.serviceOrderRequestIDs',
+    'attributes.user.employee_roles',
+    'attributes.user.createdBy',
   ];
 
-  const filteredObj = { ...obj };
-  for (const field of fieldsToExclude) {
-    delete filteredObj[field];
+  const filteredObj = {};
+  for (const [key, value] of Object.entries(obj)) {
+    if (!fieldsToExclude.includes(key) &&
+        !key.startsWith('attributes.user.role.') &&
+        !key.startsWith('attributes.user.updatedBy.') &&
+        !key.startsWith('attributes.user.createdBy.')) {
+      filteredObj[key] = value;
+    }
   }
-
-  // Remove all user.role.* fields
-  Object.keys(filteredObj).forEach(key => {
-    if (key.startsWith('user.role.')) {
-      delete filteredObj[key];
-    }
-  });
-
-  // Remove all user.updatedBy.* fields
-  Object.keys(filteredObj).forEach(key => {
-    if (key.startsWith('user.updatedBy.')) {
-      delete filteredObj[key];
-    }
-  });
-
-  // Remove all user.createdBy.* fields
-  Object.keys(filteredObj).forEach(key => {
-    if (key.startsWith('user.createdBy.')) {
-      delete filteredObj[key];
-    }
-  });
 
   return filteredObj;
 }
@@ -65,12 +99,12 @@ function filterFields(obj) {
 function jsonToCSV(items) {
   if (items.length === 0) return '';
 
-  const filteredItems = items.map(item => filterFields(item));
-  const flattenedItems = filteredItems.map(item => flattenObject(item));
-  const allKeys = [...new Set(flattenedItems.flatMap(Object.keys))];
+  const flattenedItems = items.map(item => flattenObject(item));
+  const filteredItems = flattenedItems.map(item => filterFields(item));
+  const allKeys = [...new Set(filteredItems.flatMap(Object.keys))];
   const header = allKeys.join(',') + '\n';
 
-  const rows = flattenedItems.map(item =>
+  const rows = filteredItems.map(item =>
     allKeys.map(key => {
       const value = item[key];
       if (value === null || value === undefined) return '';
