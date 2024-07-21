@@ -1,9 +1,6 @@
 const { Readable } = require('stream');
 
 function flattenObject(obj, prefix = '') {
-  if (obj === null || typeof obj !== 'object') {
-    return { [prefix]: obj };
-  }
   return Object.keys(obj).reduce((acc, k) => {
     const pre = prefix.length ? prefix + '.' : '';
     if (typeof obj[k] === 'object' && obj[k] !== null && !Array.isArray(obj[k])) {
@@ -18,8 +15,7 @@ function flattenObject(obj, prefix = '') {
 function jsonToCSV(items) {
   if (items.length === 0) return '';
 
-  const flattenedItems = items.map(item => flattenObject(item.attributes || {}));
-
+  const flattenedItems = items.map(item => flattenObject(item));
   const allKeys = [...new Set(flattenedItems.flatMap(Object.keys))];
   const header = allKeys.join(',') + '\n';
 
@@ -36,33 +32,45 @@ function jsonToCSV(items) {
   return header + rows;
 }
 
+async function deepPopulate(contentType) {
+  const schema = strapi.getModel(contentType);
+  const populate = {};
+
+  for (const [key, value] of Object.entries(schema.attributes)) {
+    if (value.type === 'relation') {
+      populate[key] = { populate: '*' };
+    } else if (value.type === 'component') {
+      populate[key] = { populate: '*' };
+    } else if (value.type === 'dynamiczone') {
+      populate[key] = { populate: '*' };
+    }
+  }
+
+  return populate;
+}
+
 module.exports = {
   async exportToCSV(ctx) {
     try {
+      console.log('Starting CSV export');
+      const populateObject = await deepPopulate('api::service-order.service-order');
+      console.log('Populate object:', JSON.stringify(populateObject, null, 2));
+
       const entries = await strapi.entityService.findMany('api::service-order.service-order', {
-        populate: {
-          user: {
-            populate: ['*']
-          },
-          personalInformation: {
-            populate: ['*']
-          },
-          requestInformation: {
-            populate: ['*']
-          },
-          attachedFile: {
-            populate: ['*']
-          }
-        },
+        populate: populateObject,
       });
 
+      console.log(`Fetched ${entries.length} entries`);
+
       if (!entries || entries.length === 0) {
+        console.log('No entries found');
         ctx.body = { error: 'No service orders found' };
         ctx.status = 404;
         return;
       }
 
       const csv = jsonToCSV(entries);
+      console.log('CSV generated. First 500 characters:', csv.substring(0, 500));
 
       ctx.set('Content-Type', 'text/csv');
       ctx.set('Content-Disposition', `attachment; filename=service-requests-${Date.now()}.csv`);
