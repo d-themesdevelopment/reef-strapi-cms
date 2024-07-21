@@ -14,11 +14,15 @@ function jsonToCSV(items) {
 module.exports = {
   async exportToCSV(ctx) {
     try {
+      console.log('Fetching service orders');
+
       // Fetch your data here. Adjust the query as needed.
       const entries = await strapi.entityService.findMany('api::service-order.service-order', {
         // Add any necessary query parameters
         populate: '*',
       });
+
+      console.log(`Fetched ${entries.length} service orders`);
 
       const csv = jsonToCSV(entries);
 
@@ -32,6 +36,7 @@ module.exports = {
       // Stream the CSV to the response
       ctx.body = stream;
     } catch (error) {
+      console.error('CSV Export Error:', error);
       ctx.body = { error: error.message };
     }
   },
