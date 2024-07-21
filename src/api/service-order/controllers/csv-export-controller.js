@@ -65,7 +65,8 @@ function filterFields(obj) {
 function jsonToCSV(items) {
   if (items.length === 0) return '';
 
-  const flattenedItems = items.map(item => filterFields(flattenObject(item)));
+  const filteredItems = items.map(item => filterFields(item));
+  const flattenedItems = filteredItems.map(item => flattenObject(item));
   const allKeys = [...new Set(flattenedItems.flatMap(Object.keys))];
   const header = allKeys.join(',') + '\n';
 
