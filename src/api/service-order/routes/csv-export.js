@@ -2,7 +2,7 @@ module.exports = {
   routes: [
     {
       method: 'GET',
-      path: '/products/export-csv',
+      path: '/service-order/export-csv',
       handler: 'csv-export.exportToCSV',
       config: {
         policies: [],
