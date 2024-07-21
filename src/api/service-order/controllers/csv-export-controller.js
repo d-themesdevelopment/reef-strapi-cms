@@ -24,7 +24,7 @@ module.exports = {
 
       // Set response headers for file download
       ctx.set('Content-Type', 'text/csv');
-      ctx.set('Content-Disposition', 'attachment; filename=صندوق-الوارد-ريف.csv');
+      ctx.set('Content-Disposition', `attachment; filename=service-requests-${Date.now()}.csv`);
 
       // Create a readable stream from the CSV string
       const stream = Readable.from(csv);

@@ -3,7 +3,7 @@ module.exports = {
     {
       method: 'GET',
       path: '/service-order/export-csv',
-      handler: 'csv-export.exportToCSV',
+      handler: 'csv-export-controller.exportToCSV',
       config: {
         policies: [],
       },
