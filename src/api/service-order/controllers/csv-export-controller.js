@@ -1,43 +1,66 @@
 const { Readable } = require('stream');
 
+function flattenObject(obj, prefix = '') {
+  return Object.keys(obj).reduce((acc, k) => {
+    const pre = prefix.length ? prefix + '.' : '';
+    if (typeof obj[k] === 'object' && obj[k] !== null && !Array.isArray(obj[k])) {
+      Object.assign(acc, flattenObject(obj[k], pre + k));
+    } else {
+      acc[pre + k] = obj[k];
+    }
+    return acc;
+  }, {});
+}
+
 function jsonToCSV(items) {
   if (items.length === 0) return '';
-  const header = Object.keys(items[0]).join(',') + '\n';
-  const rows = items.map(item =>
+
+  const flattenedItems = items.map(item => flattenObject(item.attributes));
+
+  const header = Object.keys(flattenedItems[0]).join(',') + '\n';
+  const rows = flattenedItems.map(item =>
     Object.values(item).map(value =>
-      typeof value === 'string' ? `"${value.replace(/"/g, '""')}"` : value
+      value === null ? '' :
+      typeof value === 'string' ? `"${value.replace(/"/g, '""')}"` :
+      typeof value === 'object' ? `"${JSON.stringify(value).replace(/"/g, '""')}"` :
+      value
     ).join(',')
   ).join('\n');
+
   return header + rows;
 }
 
 module.exports = {
   async exportToCSV(ctx) {
     try {
-      console.log('Fetching service orders');
-
-      // Fetch your data here. Adjust the query as needed.
       const entries = await strapi.entityService.findMany('api::service-order.service-order', {
-        // Add any necessary query parameters
-        populate: '*',
+        populate: {
+          user: {
+            populate: ['*']
+          },
+          personalInformation: {
+            populate: ['*']
+          },
+          requestInformation: {
+            populate: ['*']
+          },
+          attachedFile: {
+            populate: ['*']
+          }
+        },
       });
-
-      console.log(`Fetched ${entries.length} service orders`);
 
       const csv = jsonToCSV(entries);
 
-      // Set response headers for file download
       ctx.set('Content-Type', 'text/csv');
       ctx.set('Content-Disposition', `attachment; filename=service-requests-${Date.now()}.csv`);
 
-      // Create a readable stream from the CSV string
       const stream = Readable.from(csv);
-
-      // Stream the CSV to the response
       ctx.body = stream;
     } catch (error) {
       console.error('CSV Export Error:', error);
       ctx.body = { error: error.message };
+      ctx.status = 500;
     }
   },
 };
